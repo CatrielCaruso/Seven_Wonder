@@ -13,7 +13,7 @@ class WonderPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: size.height * 0.5,
+            height: size.height * 0.47,
             child: CustomScrollView(
               slivers: <Widget>[
                 _SilverApp(size: size, wonder: wonder),
@@ -25,16 +25,19 @@ class WonderPage extends StatelessWidget {
               left: 10,
               right: 10,
             ),
-            child: Row(
-              children: [
-                Icon(Icons.location_pin),
-                SizedBox(
-                  width: 10,
-                ),
-                _Country(text: wonder.country),
-                _Country(text: '-'),
-                _Country(text: wonder.city),
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Icon(Icons.location_pin),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  _Country(text: wonder.country),
+                  _Country(text: '-'),
+                  _Country(text: wonder.city),
+                ],
+              ),
             ),
           ),
           _Divider(),
