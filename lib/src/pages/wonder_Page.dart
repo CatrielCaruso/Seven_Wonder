@@ -28,36 +28,13 @@ class WonderPage extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Text(
-                  '${wonder.country}',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '-',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '${wonder.city}',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold),
-                ),
+                _Country(text: wonder.country),
+                _Country(text: '-'),
+                _Country(text: wonder.city),
               ],
             ),
           ),
-          Divider(
-            indent: 20,
-            endIndent: 20,
-            color: Colors.black,
-            height: 5.0,
-          ),
+          _Divider(),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
@@ -65,15 +42,43 @@ class WonderPage extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
           ),
-          Divider(
-            indent: 20,
-            endIndent: 20,
-            color: Colors.black,
-            height: 5.0,
-          ),
+          _Divider(),
         ],
       ),
     ));
+  }
+}
+
+class _Country extends StatelessWidget {
+  _Country({
+    @required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+          color: Colors.black, fontSize: 30.0, fontWeight: FontWeight.bold),
+    );
+  }
+}
+
+class _Divider extends StatelessWidget {
+  const _Divider({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Divider(
+      indent: 20,
+      endIndent: 20,
+      color: Colors.black,
+      height: 5.0,
+    );
   }
 }
 
