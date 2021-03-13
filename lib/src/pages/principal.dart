@@ -4,7 +4,7 @@ import 'package:seven_wonder/src/pages/wonder_Page.dart';
 
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 
-import 'package:seven_wonder/src/services.dart';
+import 'package:seven_wonder/src/services/services.dart';
 
 class Principal extends StatelessWidget {
   @override
@@ -21,7 +21,11 @@ class Principal extends StatelessWidget {
           // ignore: missing_return
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return Center(
+                  child: CircularProgressIndicator(
+                backgroundColor: Colors.lightBlueAccent,
+                strokeWidth: 10.0,
+              ));
             } else {
               return _VerticalPage(snapshot.data);
             }
