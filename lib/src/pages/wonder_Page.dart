@@ -13,7 +13,7 @@ class WonderPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: size.height * 0.47,
+            height: size.height * 0.45,
             child: CustomScrollView(
               slivers: <Widget>[
                 _SilverApp(size: size, wonder: wonder),
@@ -21,10 +21,7 @@ class WonderPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              left: 10,
-              right: 10,
-            ),
+            padding: const EdgeInsets.all(10.0),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -64,10 +61,13 @@ class _Country extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Text(
       text,
       style: TextStyle(
-          color: Colors.black, fontSize: 30.0, fontWeight: FontWeight.bold),
+          color: Colors.black,
+          fontSize: size.height * 0.04,
+          fontWeight: FontWeight.bold),
     );
   }
 }
@@ -83,7 +83,7 @@ class _Divider extends StatelessWidget {
       indent: 20,
       endIndent: 20,
       color: Colors.black,
-      height: 5.0,
+      height: 10.0,
     );
   }
 }
@@ -113,7 +113,7 @@ class _SilverApp extends StatelessWidget {
       pinned: false,
       snap: false,
       floating: true,
-      expandedHeight: size.height * 0.4,
+      expandedHeight: size.height * 0.43,
       flexibleSpace: FlexibleSpaceBar(
         title: Text('${wonder.name}'),
         background: Hero(
